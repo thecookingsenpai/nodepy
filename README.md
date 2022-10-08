@@ -4,7 +4,17 @@
 
 This program is distributed under the terms of the CC BY-NC-SA 2.0 license
 
-## Description
+## Installation
+
+    wget https://github.com/thecookingsenpai/nodepy
+
+Now you can copy the jspyth.py file into your project directory and 
+
+    import jspyth
+
+And proceed to the usage as shown below
+
+## Usage
 
 ### NOTE: This readme is WIP
 
@@ -14,12 +24,12 @@ Nodepy allows you to use nodejs commands and files in Python.
 
 You can either use it through:
 
-    cmd = jsptyh.JSCommand(is_file="False", command=["console.log", ["hello world"], ["eventual", "libraries", "to", "include"]], real_time=True)
+    cmd = jspyth.JSCommand(is_file="False", command=["console.log", ["hello world"], ["eventual", "libraries", "to", "include"]], real_time=True)
     result = cmd.run()
 
 Or with a file:
 
-    cmd = jsptyh.JSCommand(is_file="True", file="filename,js", real_time=True)
+    cmd = jspyth.JSCommand(is_file="True", file="filename,js", real_time=True)
     result = cmd.run()
 
 Where
