@@ -12,7 +12,7 @@ class JSCommand:
             self.file = file
             self.is_file = True
         else:
-            if command[0]==None or command[0].strip()=="":
+            if command[0] is None or command[0].strip() == "":
                 raise Exception("Command is empty")
             self.command = command
             self.is_file = False
@@ -36,14 +36,14 @@ class JSCommand:
         cmd_args = self.command[1]
         cmd_include = self.command[2]
         temp_file = "temp.js"
-        temp_buffer = ""
-        # NOTE Include libraries
-        for include in cmd_include:
-            temp_buffer += "const " + include + " = require('" + include + "');\r\n"
-        temp_buffer += cmd_string + "("
+        temp_buffer = "".join(
+            f"const {include} = require('{include}" + "');\r\n"
+            for include in cmd_include
+        )
+        temp_buffer += f"{cmd_string}("
         # NOTE Add arguments
         for arg in cmd_args:
-            temp_buffer += "'" + arg + "', "
+            temp_buffer += f"'{arg}', "
         # NOTE Remove last comma if there are arguments
         if len(cmd_args)>0:
             temp_buffer = temp_buffer[:-2]
